@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CryptoNetwork">
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.identification.IdentificationActivity"
             android:exported="false"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.CryptoNetwork.NoActionBar" />

@@ -1,6 +1,5 @@
 package com.example.cryptonetwork.ui.account
 
-import android.accounts.Account
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.cryptonetwork.databinding.FragmentAccountBinding
-import com.example.cryptonetwork.ui.login.LoginActivity
+import com.example.cryptonetwork.ui.identification.IdentificationActivity
 
 class AccountFragment : Fragment() {
 
@@ -40,7 +39,7 @@ class AccountFragment : Fragment() {
         val loginButton: Button = binding.loginButton
         loginButton.setOnClickListener {
             loginButton.text = "New Text"
-            val intent = Intent(context, LoginActivity::class.java).apply {
+            val intent = Intent(context, IdentificationActivity::class.java).apply {
                 putExtra("keyIdentifier", 1)
                 startActivity(this)
             }

@@ -1,4 +1,4 @@
-package com.example.cryptonetwork.ui.login
+package com.example.cryptonetwork.ui.identification
 
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
@@ -11,7 +11,7 @@ import com.example.cryptonetwork.R
 import com.example.cryptonetwork.databinding.ActivityLoginBinding
 //import com.example.cryptonetwork.ui.login.databinding.ActivityLoginBinding
 
-class LoginActivity : AppCompatActivity() {
+class IdentificationActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityLoginBinding
