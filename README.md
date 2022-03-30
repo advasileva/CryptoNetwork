@@ -1,1 +1,2 @@
-# CryptoRating
+# CryptoNetwork
+*In development*
