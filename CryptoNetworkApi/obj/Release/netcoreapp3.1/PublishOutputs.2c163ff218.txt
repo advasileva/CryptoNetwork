@@ -1,0 +1,11 @@
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\CryptoNetworkApi.exe
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\CryptoNetworkApi.dll
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\CryptoNetworkApi.deps.json
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\CryptoNetworkApi.runtimeconfig.json
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\CryptoNetworkApi.pdb
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.OpenApi.dll
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Development\Android&Kotlin\CryptoNetwork\CryptoNetworkApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll

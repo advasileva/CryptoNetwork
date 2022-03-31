@@ -1,5 +1,6 @@
 package com.example.cryptonetwork.ui.identification
 
+import Services.RequestSender
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -35,6 +36,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.buttonLogin.setOnClickListener{
+            RequestSender.TryLogin(binding.login.text.toString(), binding.password.text.toString())
+        }
         binding.buttonToregistr.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
