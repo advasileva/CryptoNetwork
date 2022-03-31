@@ -38,7 +38,6 @@ class AccountFragment : Fragment() {
 
         val loginButton: Button = binding.loginButton
         loginButton.setOnClickListener {
-            loginButton.text = "New Text"
             val intent = Intent(context, IdentificationActivity::class.java).apply {
                 putExtra("keyIdentifier", 1)
                 startActivity(this)
