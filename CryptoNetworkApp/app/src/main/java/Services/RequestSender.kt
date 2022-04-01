@@ -1,5 +1,6 @@
 package Services
 
+import kotlinx.coroutines.*
 import android.util.Log
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -8,7 +9,7 @@ import java.net.URL
 class RequestSender {
     companion object {
 
-        fun TryLogin(login: String, password: String) {
+        suspend fun TryLogin(login: String, password: String) {
             Log.println(Log.DEBUG, Log.DEBUG.toString(), "GET $login $password")
             try {
                 Log.println(Log.INFO, Log.DEBUG.toString(), "START")
@@ -16,16 +17,20 @@ class RequestSender {
                 //URL("https://google.com/")?.readText()
 
                 val url = URL("https://reqres.in/api/users?page=1")
-                Thread.sleep(1_000)
+                Log.println(Log.INFO, Log.DEBUG.toString(), "AAAAAAAAAAAAA")
                 val connection = url.openConnection()
-                Thread.sleep(1_000)
-                BufferedReader(InputStreamReader(connection.getInputStream())).use { inp ->
-                    var line: String?
-                    while (inp.readLine().also { line = it } != null) {
+                Log.println(Log.INFO, Log.DEBUG.toString(), "BAAAAAAAAAAAA")
 
+                async {
+                    BufferedReader(InputStreamReader(connection.getInputStream())).use { inp ->
+                        var line: String?
+                        Log.println(Log.INFO, Log.DEBUG.toString(), "CAAAAAAAAAAAA")
+                        while (inp.readLine().also { line = it } != null) {
+                            Log.println(Log.INFO, Log.DEBUG.toString(), "AAAAAAAAAAAAA")
+                        }
                     }
+                    Thread.sleep(1_000)
                 }
-                Thread.sleep(1_000)
                 Log.println(Log.DEBUG, Log.DEBUG.toString(), "SUCCESS")
             } catch (ex: Exception) {
                 Log.println(Log.DEBUG, Log.DEBUG.toString(),

@@ -14,28 +14,31 @@ namespace CryptoNetworkApi.Controllers
         [HttpGet("check")]
         public IActionResult CheckUser(string login, string password)
         {
-            if (_users.Any(user => user.Login == login && user.Password == password))
+            User user = _users.FirstOrDefault(user => user.Login == login && user.Password == password);
+            if (user != null)
             {
-                return Ok("Correct account");
+                return Ok(user.SerializeUserInfo());
             }
             return BadRequest("Incorrect account");
         }
 
         [HttpPost("create")]
-        public IActionResult PostUser(string login, string password)
+        public IActionResult PostUser(string login, string password, string username)
         {
-            _users.Add(new User(login, password));
+            _users.Add(new User(login, password, username));
             return Ok("Account created");
         }
 
-        [HttpGet("print-debug")]
-        public IActionResult Print()
+        [HttpDelete("delete")]
+        public IActionResult DeleteUser(string login, string password)
         {
-            foreach (var user in _users)
+            User user = _users.FirstOrDefault(user => user.Login == login && user.Password == password);
+            if (user != null)
             {
-                System.Diagnostics.Debug.WriteLine($"User: {user.Login}");
+                _users.Remove(user);
+                return Ok("User deleted");
             }
-            return Ok("Printed");
+            return BadRequest("Incorrect account");
         }
 
         [HttpGet("get-all")]

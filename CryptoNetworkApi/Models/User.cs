@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json;
 
 namespace CryptoNetworkApi.Models
 {
@@ -35,11 +36,22 @@ namespace CryptoNetworkApi.Models
             }
         }
 
-        public User(string login, string password)
+        private UserInfo _info;
+        public UserInfo Info
+        {
+            get => _info;
+            set
+            {
+                _info = value;
+            }
+        }
+
+        public User(string login, string password, string username)
         {
             _id = GenerateGuid();
             Login = login;
             Password = password;
+            _info = new UserInfo(username);
         }
 
         private string GenerateGuid() => "guid";
@@ -47,5 +59,7 @@ namespace CryptoNetworkApi.Models
         private bool IsCorrectLogin(string login) => true;
 
         private bool IsCorrectPassword(string password) => true;
+
+        public string SerializeUserInfo() => JsonSerializer.Serialize(Info);
     }
 }
