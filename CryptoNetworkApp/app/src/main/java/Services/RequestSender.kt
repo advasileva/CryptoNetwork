@@ -1,66 +1,55 @@
 package Services
 
+import android.os.AsyncTask
 import kotlinx.coroutines.*
 import android.util.Log
 import java.io.BufferedReader
 import java.io.InputStreamReader
+import java.net.HttpURLConnection
 import java.net.URL
 
 class RequestSender {
-    companion object {
+    fun TryLogin(login: String?, password: String?) : AsyncTask<String, String, String>? {
+        Log.println(
+            Log.INFO, Log.DEBUG.toString(),
+            "https://cryptonetworkapi.azurewebsites.net/crypto-network/account" +
+                    "/check?login=$login&password=$password"
+        )
+        val url =
+            "https://cryptonetworkapi.azurewebsites.net/crypto-network/account" +
+                    "/check?login=$login&password=$password"
 
-        suspend fun TryLogin(login: String, password: String) {
-            Log.println(Log.DEBUG, Log.DEBUG.toString(), "GET $login $password")
+        return AsyncTaskHandleJson().execute(url)
+    }
+
+    inner class AsyncTaskHandleJson : AsyncTask<String, String, String>() {
+        override fun doInBackground(vararg url: String?): String {
+            val text: String
+            val connection = URL(url[0]).openConnection() as HttpURLConnection
             try {
-                Log.println(Log.INFO, Log.DEBUG.toString(), "START")
-
-                //URL("https://google.com/")?.readText()
-
-                val url = URL("https://reqres.in/api/users?page=1")
-                Log.println(Log.INFO, Log.DEBUG.toString(), "AAAAAAAAAAAAA")
-                val connection = url.openConnection()
-                Log.println(Log.INFO, Log.DEBUG.toString(), "BAAAAAAAAAAAA")
-
-                async {
-                    BufferedReader(InputStreamReader(connection.getInputStream())).use { inp ->
-                        var line: String?
-                        Log.println(Log.INFO, Log.DEBUG.toString(), "CAAAAAAAAAAAA")
-                        while (inp.readLine().also { line = it } != null) {
-                            Log.println(Log.INFO, Log.DEBUG.toString(), "AAAAAAAAAAAAA")
-                        }
-                    }
-                    Thread.sleep(1_000)
+                connection.connect()
+                text = connection.inputStream.use {
+                    it.reader().use() { reader -> reader.readText() }
                 }
-                Log.println(Log.DEBUG, Log.DEBUG.toString(), "SUCCESS")
-            } catch (ex: Exception) {
-                Log.println(Log.DEBUG, Log.DEBUG.toString(),
-                    "EXC ${ex.message} ${ex.localizedMessage} ${ex.stackTrace}")
+            } finally {
+                connection.disconnect()
             }
-
-//            var reqParam = URLEncoder.encode("login", "UTF-8") + "=" + URLEncoder.encode(login, "UTF-8")
-//            reqParam += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8")
-//
-//            val mURL = URL("https://cryptonetworkapi.azurewebsites.net/crypto-network/account/check?"+reqParam)
-//            Log.println(Log.DEBUG, Log.DEBUG.toString(), "URL $mURL")
-////            with(mURL.openConnection() as HttpURLConnection) {
-////                // optional default is GET
-////                requestMethod = "GET"
-////
-////                println("URL : $url")
-////                println("Response Code : $responseCode")
-////
-////                BufferedReader(InputStreamReader(inputStream)).use {
-////                    val response = StringBuffer()
-////
-////                    var inputLine = it.readLine()
-////                    while (inputLine != null) {
-////                        response.append(inputLine)
-////                        inputLine = it.readLine()
-////                    }
-////                    it.close()
-////                    Log.println(Log.DEBUG, Log.DEBUG.toString(), "Response $response")
-////                }
-////            }
+            //text = URL(url.toString()).readText()
+            return text
         }
+
+        override fun onPostExecute(result: String?) {
+            Log.println(Log.DEBUG, Log.DEBUG.toString(), "EXECUTED")
+            super.onPostExecute(result)
+            handleJson(result)
+        }
+
+        override fun onProgressUpdate(vararg values: String?) {
+            super.onProgressUpdate(*values)
+        }
+    }
+
+    private fun handleJson(jsonString: String?) {
+        Log.println(Log.DEBUG, Log.DEBUG.toString(), jsonString.toString())
     }
 }
