@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/drawable/button.xml" value="0.135" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/drawable/ic_account_black_24dp.xml" value="0.126" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.126" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/drawable/ic_baseline_assessment_24.xml" value="0.126" />
@@ -18,6 +19,8 @@
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_account.xml" value="0.11510416666666666" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_first.xml" value="0.11510416666666666" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_login.xml" value="0.22" />
+        <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_news.xml" value="0.11231884057971014" />
+        <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_rating.xml" value="0.11231884057971014" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/CryptoNetworkApp/app/src/main/res/layout/fragment_registration.xml" value="0.25" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Development/Android&amp;Kotlin/CryptoNetwork/app/src/main/res/layout/fragment_account.xml" value="0.11510416666666666" />
